@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:id="board"
+          fx:controller="game.controller.boardController">
+    <!-- 1행 -->
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+
+    <!-- 2행 -->
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+
+    <!-- 3행 -->
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+
+    <!-- 4행 -->
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+
+    <!-- 5행 -->
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+    <ImageView fitWidth="40" fitHeight="40" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+</GridPane>
