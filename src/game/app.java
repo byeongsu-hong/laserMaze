@@ -25,7 +25,7 @@ public class app extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/main.fxml"));
         primaryStage.setResizable(false);
         primaryStage.setTitle("laserMaze");
-        primaryStage.setScene(new Scene(root, 600, 500));
+        primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.show();
     }
 

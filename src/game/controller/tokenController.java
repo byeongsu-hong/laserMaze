@@ -23,8 +23,6 @@ public class tokenController implements Initializable {
 
     @FXML
     private GridPane token;
-    @FXML
-    private GridPane utoken;
 
     private final BorderPane wrapper;
     private final GridPane board;
@@ -36,12 +34,8 @@ public class tokenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (utoken == null)
-            for (Node node : token.getChildren())
-                process(node);
-        else
-            for (Node node : utoken.getChildren())
-                process(node);
+        for (Node node : token.getChildren())
+            process(node);
     }
 
     private void process(Node node) {
@@ -53,6 +47,7 @@ public class tokenController implements Initializable {
                 cursorImage.setImage(token.getImage());
                 cursorImage.setFitWidth(TOKEN_WIDTH);
                 cursorImage.setFitHeight(TOKEN_HEIGHT);
+                cursorImage.setId(token.getId());
                 cursorImage.toFront();
 
                 cursorImage.setX(event.getSceneX() - (TOKEN_WIDTH / 2));
@@ -82,6 +77,7 @@ public class tokenController implements Initializable {
                                 ImageView cellImage = new ImageView(cursorImage.getImage());
                                 cellImage.setFitWidth(TOKEN_WIDTH);
                                 cellImage.setFitHeight(TOKEN_HEIGHT);
+                                cellImage.setId(cursorImage.getId());
 
                                 VBox cell = getCellByColRow(board, i, j);
                                 if (cell != null)

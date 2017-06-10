@@ -5,5 +5,4 @@
 <HBox xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
         fx:id="footer"
-        fx:controller="game.controller.footerController"
         alignment="BOTTOM_LEFT"/>

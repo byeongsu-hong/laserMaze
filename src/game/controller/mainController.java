@@ -24,7 +24,7 @@ public class mainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        FXMLLoader itemMenuLoader = new FXMLLoader(app.getContext().getClass().getResource("view/itemMenu.fxml"));
+        FXMLLoader itemMenuLoader = new FXMLLoader(app.getContext().getClass().getResource("view/token.fxml"));
         FXMLLoader boardLoader = new FXMLLoader(app.getContext().getClass().getResource("view/board.fxml"));
         FXMLLoader footerLoader = new FXMLLoader(app.getContext().getClass().getResource("view/footer.fxml"));
 
@@ -32,7 +32,8 @@ public class mainController implements Initializable {
             boardLoader.setController(new boardController(wrapper));
             GridPane board = boardLoader.load();
 
-            itemMenuLoader.setController(new itemMenuController(wrapper, board));
+            itemMenuLoader.setController(new tokenController(wrapper, board));
+            footerLoader.setController(new footerController(board));
 
             wrapper.setRight(itemMenuLoader.load());
             wrapper.setCenter(board);
