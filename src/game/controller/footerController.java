@@ -70,15 +70,23 @@ public class footerController implements Initializable {
             HashMap<Integer, Integer> mapRandom = makeRandomList();
             System.out.println(mapRandom.toString());
 
+            Block block = null;
             int goal = 0;
 
             try {
                 // 목표 갯수 파싱
                 goal = Integer.parseInt(goalNumber.getText());
 
+                Checker checker = new Checker(mapBoard, mapRandom, goal);
+                block = checker.run();
+
                 // TODO: 맵 데이터랑 Add to Grid, 목표 갯수 체커에 넣어서 리턴타입이 뭐든간에 결과 뽑아내기.
             } catch (NumberFormatException e) {
                 goalNumber.setText("숫자가 아니잖아요!");
+            }
+
+            if(block != null) {
+                printTree(block);
             }
 
             // 그려 주세요
@@ -153,5 +161,14 @@ public class footerController implements Initializable {
         }
 
         return map;
+    }
+
+    private void printTree(Block treeNode) {
+        System.out.println("[" + treeNode.getLocation() + "," + treeNode.getType() + "]");
+        for(Block node: treeNode.conn) {
+            if(node != null) {
+                printTree(node);
+            }
+        }
     }
 }

@@ -26,7 +26,7 @@ public class Checker {
         arr[j] = temp;
     }
 
-    public Checker(int[][] defaultPlacement, HashMap<Integer, Integer> randomBlockCount, int goalNumber) {
+    Checker(int[][] defaultPlacement, HashMap<Integer, Integer> randomBlockCount, int goalNumber) {
         this.defaultPlacement = defaultPlacement;
         this.randomBlockCount = randomBlockCount;
         fixedRandomBlockLocation = new HashMap<Integer, Integer>();
@@ -53,19 +53,19 @@ public class Checker {
             for(int j=0; j<5; j++)
                 if(defaultPlacement[i][j]%10 == 5) fixedRandomBlockLocation.put(i*5+j, defaultPlacement[i][j]/10);
 
-     }
+    }
 
-     //블록의 상태를 업데이트 해주는 코드
-     public void changeLocationListStatus(int p, int[] blockLocation) {
+    //블록의 상태를 업데이트 해주는 코드
+    private void changeLocationListStatus(int p, int[] blockLocation) {
         if(p >= 1 && blockLocation[p] >= (25-(blockLocation.length-p))) changeLocationListStatus(p-1, blockLocation);
         else {
             blockLocation[p]++;
             return;
         }
         blockLocation[p] = blockLocation[p-1] + 1;
-     }
+    }
 
-    public void changeBlockListStatus(int p, int[] blockStatus) {
+    private void changeBlockListStatus(int p, int[] blockStatus) {
         if (p ==0 ) {
             blockStatus[p]++;
             return;
@@ -130,7 +130,7 @@ public class Checker {
     }
 
 
-    public boolean changeQuestionBlockType(Object[] arr) { //arr는 랜덤 블록의 컬러이다.
+    private boolean changeQuestionBlockType(Object[] arr) { //arr는 랜덤 블록의 컬러이다.
         //TODO: 각 색 블록의 Random 값을 받고, location은 order에 맞게 진행한다
         ArrayList<Integer> randomColorOrder = new ArrayList<Integer>();
         ArrayList<Integer> randomLocationOrder = new ArrayList<Integer>();
@@ -157,7 +157,7 @@ public class Checker {
         }
     }
 
-    public boolean perm(Object[] arr, int pivot) {
+    private boolean perm(Object[] arr, int pivot) {
         Integer[] array = new Integer[arr.length];
         for(int i=0; i<arr.length; i++) array[i] = (Integer) arr[i];
         ICombinatoricsVector<Integer> initialVector = Factory.createVector(array);
@@ -168,8 +168,7 @@ public class Checker {
         return false;
     }
 
-
-    public Block run() {
+    Block run() {
         //블록의 위치를 변경하는 코드
         while(true) {
             blockLocation[blockLocSize-1]++;
