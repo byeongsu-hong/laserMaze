@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -41,5 +42,9 @@ public class toolsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        TextArea area = new TextArea("목표의 숫자를 써주세요");
+        area.setMaxWidth(200);
+        tools.getChildren().add(area);
     }
 }
