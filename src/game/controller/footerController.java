@@ -1,7 +1,5 @@
 package game.controller;
 
-import game.solver.Block;
-import game.solver.Checker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;

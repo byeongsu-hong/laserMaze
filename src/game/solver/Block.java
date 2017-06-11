@@ -10,11 +10,19 @@ public class Block {
     public Block[] conn; //Top, Down, Left, Right
     private int laserFrom = -1; //if laserFrom is -1, StartBlock(RED)
     private int[][] blockPosition;
-    private Mov[] movement, shot;
+    public static Mov[] movement = new Mov[]{
+            new Mov(1, 0), new Mov(0, -1),
+            new Mov(-1, 0),
+            new Mov(0, 1)
+    }, shot = new Mov[]{
+            new Mov(-1, 0), new Mov(0, 1),
+            movement[0],
+            new Mov(0, -1)
+    };;
     private int[] addAt = new int[]{2, 3, 0, 1};
     private boolean targeted = false;
 
-    private class Mov {
+    public static class Mov {
         int x, y;
 
         public Mov(int x, int y) {
@@ -44,16 +52,6 @@ public class Block {
     public Block(int location, int[][] blockPosition) {
         this.conn = new Block[4];
         this.blockPosition = blockPosition;
-        this.movement = new Mov[]{
-          new Mov(1, 0), new Mov(0, -1),
-            new Mov(-1, 0),
-            new Mov(0, 1)
-        };
-        this.shot = new Mov[]{
-                new Mov(-1, 0), new Mov(0, 1),
-                new Mov(1, 0),
-                new Mov(0, -1)
-        };
         this.location = location;
         this.convert(blockPosition[location/5][location%5]);
     }
@@ -72,8 +70,8 @@ public class Block {
 
             if(blockPosition[x][y] != 0) {
                 for(int i=0; i<movement.length; i++) {
-                    if(mov.equals(movement[i])) {
-                        conn[addAt[i]] = new Block(i, blockPosition);
+                    if(mov.x == movement[i].x && mov.y == movement[i].y) {
+                        conn[addAt[i]] = new Block(i,x*5+y, blockPosition);
                         conn[addAt[i]].find();
                         return;
                     }
@@ -91,33 +89,33 @@ public class Block {
                 search(x, y, shot[type]);
                 break;
             case 2 : //blue
-                if(type == 0) moveArray = new Mov[]{new Mov(0, -1), new Mov(1, 0), new Mov(0, 1), new Mov(-1, 0)};
-                else moveArray = new Mov[]{new Mov(0, 1), new Mov(-1, 0), new Mov(0, -1), new Mov(1, 0)};
+                if(type == 0) moveArray = new Mov[]{movement[1], movement[0], movement[3], movement[2]};
+                else moveArray = new Mov[]{movement[3], movement[2], movement[1], movement[0]};
                 search(x, y, moveArray[laserFrom]);
                 break;
             case 3: //Green
                 switch(type) {
                     case 0:
-                        if(laserFrom == 0) { search(x, y, new Mov(1, 0)); search(x, y, new Mov(0, 1)); }
-                        else if(laserFrom == 1) { search(x, y, new Mov(-1, 0)); search(x, y, new Mov(0, -1)); }
-                        else if(laserFrom == 2) { search(x, y, new Mov(-1, 0)); search(x, y, new Mov(0, 1)); }
-                        else { search(x, y, new Mov(-1, 0)); search(x, y, new Mov(0, 1)); }
+                        if(laserFrom == 0) { search(x, y, movement[0]); search(x, y, movement[1]); }
+                        else if(laserFrom == 1) { search(x, y, movement[0]); search(x, y, movement[1]); }
+                        else if(laserFrom == 2) { search(x, y, movement[2]); search(x, y, movement[3]); }
+                        else { search(x, y, movement[2]); search(x, y, movement[3]); }
                         break;
                     case 1:
-                        if(laserFrom == 0) { search(x, y, new Mov(1, 0)); search(x, y, new Mov(0, -1)); }
-                        else if(laserFrom == 1) { search(x, y, new Mov(1, 0)); search(x, y, new Mov(0, -1)); }
-                        else if(laserFrom == 2) { search(x, y, new Mov(-1, 0)); search(x, y, new Mov(0, -1)); }
-                        else { search(x, y, new Mov(1, 0)); search(x, y, new Mov(0, 1)); }
+                        if(laserFrom == 0) { search(x, y, movement[0]); search(x, y, movement[3]); }
+                        else if(laserFrom == 1) { search(x, y, movement[2]); search(x, y, movement[1]); }
+                        else if(laserFrom == 2) { search(x, y, movement[2]); search(x, y, movement[1]); }
+                        else { search(x, y, movement[0]); search(x, y, movement[3]); }
                         break;
                 }
                 break;
-            case 4 : //Yellow
+            case 5 : //Yellow
                 if(type==0 && (laserFrom == 0 || laserFrom == 2))  //ㅡ
-                    search(x, y, (laserFrom == 0 ? new Mov(0, 1) : new Mov(0, -1)));
+                    search(x, y, (laserFrom == 0 ? movement[3] : movement[1]));
                 else if(type == 1 && (laserFrom == 1 || laserFrom == 3)) //|
-                    search(x, y, (laserFrom == 1 ? new Mov(-1, 0) : new Mov(1, 0)));
+                    search(x, y, (laserFrom == 1 ? movement[2] : movement[0]));
                 break;
-            case 5:
+            case 4:
             case 6:
                 if(type == laserFrom) {
                     //Target on!
@@ -125,19 +123,19 @@ public class Block {
                     return;
                 }
                 else if(type==0 && (laserFrom == 2 || laserFrom == 3))
-                    search(x, y, (laserFrom==2 ? new Mov(0, -1): new Mov(1, 0)));
+                    search(x, y, (laserFrom==2 ? movement[1]: movement[0]));
                 else if(type==1 && (laserFrom == 0 || laserFrom == 3))
-                    search(x, y, (laserFrom==0 ? new Mov(0, -1) : new Mov(-1, 0)));
+                    search(x, y, (laserFrom==0 ? movement[1] : movement[2]));
                 else if(type==2 && (laserFrom == 0 || laserFrom == 1))
-                    search(x, y, (laserFrom == 0 ? new Mov(0, 1) : new Mov(-1 ,0)));
+                    search(x, y, (laserFrom == 0 ? movement[3] : new Mov(-1 ,0)));
                 else if(type==3 && (laserFrom == 1 || laserFrom == 2))
-                    search(x, y, (laserFrom == 1 ? new Mov(1, 0) : new Mov(0, 1)));
+                    search(x, y, (laserFrom == 1 ? movement[0] : movement[3]));
                 break;
             default :
-                if(laserFrom == 0) search(x, y, new Mov(1, 0));
-                else if(laserFrom == 1) search(x, y, new Mov(0, -1));
-                else if(laserFrom == 2) search(x, y, new Mov(-1, 0));
-                else search(x, y, new Mov(0, 1));
+                if(laserFrom == 0) search(x, y, movement[0]);
+                else if(laserFrom == 1) search(x, y, movement[1]);
+                else if(laserFrom == 2) search(x, y, movement[2]);
+                else search(x, y, movement[3]);
         }
     }
 
@@ -172,5 +170,12 @@ public class Block {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public void toArray(int[][] arr) {
+        arr[location/5][location%5] = color*10+type;
+
+        for(int i=0; i<4; i++)
+            if(conn[i] != null) conn[i].toArray(arr);
     }
 }
