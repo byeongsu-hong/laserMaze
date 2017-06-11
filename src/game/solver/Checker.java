@@ -10,7 +10,7 @@ public class Checker {
     private HashMap<Integer, Integer> randomBlockCount, fixedRandomBlockLocation;
     private int[] blockLocation = null;
     private int blockLocSize = 0;
-    private int[] numberOfEachBlockSize = new int[]{0, 4, 2, 2, 4, 2, 4};
+    private int[] numberOfEachBlockSize = new int[]{0, 4, 2, 2, 4, 2, 4, 1};
     private ArrayList<Integer> blockArray, blockMaxArray;
     private int goalNumber; //골의 개수
     private Block resultTree;
@@ -40,7 +40,7 @@ public class Checker {
             blockLocation[i] = i;
 
         for(int i : randomBlockCount.keySet()) {
-            for(int j=0; j<i; j++)
+            for(int j=0; j<randomBlockCount.get(i); j++)
                 blockArray.add(i);
         }
 
@@ -151,7 +151,7 @@ public class Checker {
     }
 
     public boolean perm(Object[] arr, int pivot) {
-        if (pivot == arr.length) {
+        if (pivot <= arr.length) {
             if (changeQuestionBlockType(arr)) return true;
             return false;
         }
@@ -173,6 +173,7 @@ public class Checker {
             if (blockLocation[blockLocSize-1] >= 25) return null;
             //블록의 색을 섞는 코드
             Object[] arrayColorTemp = blockArray.toArray();
+
             if (perm(arrayColorTemp, 0)) {
                 return resultTree;
             }
