@@ -1,5 +1,6 @@
 package game.controller;
 
+import game.solver.Block;
 import game.solver.Checker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -62,19 +63,21 @@ public class footerController implements Initializable {
             HashMap<Integer, Integer> mapRandom = makeRandomList();
             System.out.println(mapRandom.toString());
 
+            Block tree = null;
+
             int goal = 0;
 
             try {
                 goal = Integer.parseInt(goalNumber.getText());
 
                 Checker checker = new Checker(mapBoard, mapRandom, goal);
-                mapBoard = checker.run();
-
-                System.out.println("===============================");
-                System.out.println(Arrays.deepToString(mapBoard));
+                tree = checker.run();
             } catch (NumberFormatException e) {
                 goalNumber.setText("숫자가 아니잖아요!");
             }
+
+            if(tree != null)
+                printTree(tree);
 
             // 그려 주세요
 
@@ -141,5 +144,14 @@ public class footerController implements Initializable {
         }
 
         return map;
+    }
+
+    private void printTree(Block treeNode) {
+        System.out.println("[" + treeNode.getLocation() + "," + treeNode.getType() + "]");
+        for(Block node: treeNode.conn) {
+            if(node != null) {
+                printTree(node);
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ public class addToGridController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             VBox cell = new VBox();
             cell.setStyle("" +
                     "-fx-max-width: 50px;" +
@@ -77,8 +77,8 @@ public class addToGridController implements Initializable {
                     double mx = event.getSceneX() - 450.0;
                     double my = event.getSceneY() - 20.0;
 
-                    if((mx > 0 && my > 0) && (mx < TOKEN_WIDTH * 6 && my < TOKEN_HEIGHT * 2))
-                        for(int x = 0; x < 6; x++)
+                    if((mx > 0 && my > 0) && (mx < TOKEN_WIDTH * 5 && my < TOKEN_HEIGHT * 2))
+                        for(int x = 0; x < 5; x++)
                             if((mx > (x * TOKEN_WIDTH) && mx < (x + 1) * TOKEN_WIDTH)) {
                                 ImageView cellImage = new ImageView(cursorImage.getImage());
                                 cellImage.setFitWidth(TOKEN_WIDTH);

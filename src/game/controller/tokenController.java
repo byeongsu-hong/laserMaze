@@ -87,8 +87,8 @@ public class tokenController implements Initializable {
                 x = event.getSceneX() - 450.0;
                 y = event.getSceneY() - 20.0;
 
-                if((x > 0 && y > 0) && (x < TOKEN_WIDTH * 6 && y < TOKEN_HEIGHT))
-                    for(int i = 0; i < 6; i++)
+                if((x > 0 && y > 0) && (x < TOKEN_WIDTH * 5 && y < TOKEN_HEIGHT))
+                    for(int i = 0; i < 5; i++)
                         if((x > (i * TOKEN_WIDTH) && x < (i + 1) * TOKEN_WIDTH)) {
                             String id = cursorImage.getId();
 

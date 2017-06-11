@@ -95,7 +95,7 @@
     </ImageView>
 
     <!-- 7행 -->
-    <ImageView id="25" fitWidth="50" fitHeight="50" GridPane.columnIndex="0" GridPane.rowIndex="6">
+    <ImageView id="70" fitWidth="50" fitHeight="50" GridPane.columnIndex="0" GridPane.rowIndex="6">
         <Image url="@../res/bk.png" />
     </ImageView>
 
