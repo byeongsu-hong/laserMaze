@@ -1,5 +1,6 @@
 package game.controller;
 
+import game.solver.Checker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -7,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -28,6 +30,7 @@ public class footerController implements Initializable {
     private final Canvas canvas;
     private final GridPane board;
     private final GridPane addToGrid;
+    private final TextArea goalNumber;
 
     footerController(BorderPane wrapper) {
         StackPane stage = (StackPane) wrapper.getCenter();
@@ -35,6 +38,7 @@ public class footerController implements Initializable {
         this.board = (GridPane)(stage.getChildren().get(1));
         VBox tools = (VBox) wrapper.getRight();
         this.addToGrid = (GridPane) tools.getChildren().get(0);
+        this.goalNumber = (TextArea) tools.getChildren().get(2);
     }
 
     @Override
@@ -57,6 +61,20 @@ public class footerController implements Initializable {
 
             HashMap<Integer, Integer> mapRandom = makeRandomList();
             System.out.println(mapRandom.toString());
+
+            int goal = 0;
+
+            try {
+                goal = Integer.parseInt(goalNumber.getText());
+
+                Checker checker = new Checker(mapBoard, mapRandom, goal);
+                mapBoard = checker.run();
+
+                System.out.println("===============================");
+                System.out.println(Arrays.deepToString(mapBoard));
+            } catch (NumberFormatException e) {
+                goalNumber.setText("숫자가 아니잖아요!");
+            }
 
             // 그려 주세요
 
