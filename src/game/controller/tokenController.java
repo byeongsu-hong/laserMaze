@@ -4,14 +4,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static game.controller.boardController.getCellByColRow;
+import static game.controller.footerController.CANVAS_LOCATION;
 import static game.controller.mainController.CURSOR_IMAGE_LOCATION;
 
 /**
@@ -25,11 +24,13 @@ public class tokenController implements Initializable {
     private GridPane token;
 
     private final BorderPane wrapper;
+    private final GridPane addToGrid;
     private final GridPane board;
 
-    tokenController(BorderPane wrapper, GridPane board) {
+    tokenController(BorderPane wrapper, VBox tools) {
         this.wrapper = wrapper;
-        this.board = board;
+        this.addToGrid = (GridPane)tools.getChildren().get(0);
+        this.board = (GridPane)((StackPane)this.wrapper.getCenter()).getChildren().get(1);
     }
 
     @Override
@@ -62,7 +63,6 @@ public class tokenController implements Initializable {
             });
 
             token.setOnMouseReleased(event -> {
-
                 ImageView cursorImage = (ImageView) wrapper.getChildren().get(CURSOR_IMAGE_LOCATION);
 
                 // 40, 90 start
@@ -83,6 +83,26 @@ public class tokenController implements Initializable {
                                 if (cell != null)
                                     cell.getChildren().setAll(cellImage);
                             }
+
+                x = event.getSceneX() - 450.0;
+                y = event.getSceneY() - 20.0;
+
+                if((x > 0 && y > 0) && (x < TOKEN_WIDTH * 6 && y < TOKEN_HEIGHT))
+                    for(int i = 0; i < 6; i++)
+                        if((x > (i * TOKEN_WIDTH) && x < (i + 1) * TOKEN_WIDTH)) {
+                            String id = cursorImage.getId();
+
+                            if(id.equals("45") || id.equals("65") || id.equals("15") || id.equals("55") || id.equals("35") || id.equals("25")) {
+                                ImageView cellImage = new ImageView(cursorImage.getImage());
+                                cellImage.setFitWidth(TOKEN_WIDTH);
+                                cellImage.setFitHeight(TOKEN_HEIGHT);
+                                cellImage.setId(cursorImage.getId());
+
+                                VBox tcell = getCellByColRow(addToGrid, i, 0);
+                                if (tcell != null)
+                                    tcell.getChildren().setAll(cellImage);
+                            }
+                        }
 
                 cursorImage.setFitWidth(0);
                 cursorImage.setFitHeight(0);

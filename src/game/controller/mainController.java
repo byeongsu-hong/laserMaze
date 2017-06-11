@@ -24,20 +24,20 @@ public class mainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        FXMLLoader itemMenuLoader = new FXMLLoader(app.getContext().getClass().getResource("view/token.fxml"));
-        FXMLLoader boardLoader = new FXMLLoader(app.getContext().getClass().getResource("view/board.fxml"));
+        FXMLLoader toolsLoader = new FXMLLoader(app.getContext().getClass().getResource("view/tools.fxml"));
+        FXMLLoader stageLoader = new FXMLLoader(app.getContext().getClass().getResource("view/stage.fxml"));
         FXMLLoader footerLoader = new FXMLLoader(app.getContext().getClass().getResource("view/footer.fxml"));
 
         try {
-            boardLoader.setController(new boardController(wrapper));
-            GridPane board = boardLoader.load();
+            stageLoader.setController(new stageController(wrapper));
+            wrapper.setCenter(stageLoader.load());
 
-            itemMenuLoader.setController(new tokenController(wrapper, board));
-            footerLoader.setController(new footerController(board));
+            toolsLoader.setController(new toolsController(wrapper));
+            wrapper.setRight(toolsLoader.load());
 
-            wrapper.setRight(itemMenuLoader.load());
-            wrapper.setCenter(board);
+            footerLoader.setController(new footerController(wrapper));
             wrapper.setBottom(footerLoader.load());
+
         } catch (IOException e) {
             e.printStackTrace();
         }

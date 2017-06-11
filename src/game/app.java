@@ -4,6 +4,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
 
 /**
@@ -25,7 +31,7 @@ public class app extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/main.fxml"));
         primaryStage.setResizable(false);
         primaryStage.setTitle("laserMaze");
-        primaryStage.setScene(new Scene(root, 700, 500));
+        primaryStage.setScene(new Scene(root, 800, 500));
         primaryStage.show();
     }
 
