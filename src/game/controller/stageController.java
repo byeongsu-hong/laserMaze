@@ -45,9 +45,6 @@ public class stageController implements Initializable {
         StackPane.setMargin(canvas, new Insets(-150, 130, 0, -10));
         GraphicsContext context = canvas.getGraphicsContext2D();
 
-        context.setFill(Color.RED);
-        context.fillRect(0, 0, 250, 250);
-
         stage.getChildren().addAll(canvas, board);
     }
 }

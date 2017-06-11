@@ -1,5 +1,8 @@
 package game.controller;
 
+import game.drawer.Drawer;
+import game.solver.Block;
+import game.solver.Checker;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -26,6 +29,8 @@ public class footerController implements Initializable {
 
     @FXML
     private HBox footer;
+
+    // Canvas 객체
     private final Canvas canvas;
     private final GridPane board;
     private final GridPane addToGrid;
@@ -51,35 +56,40 @@ public class footerController implements Initializable {
         Button reset = new Button("게임 리셋");
         reset.setPrefWidth(100);
 
+        // Canvas 에 그림을 그리게 할 수 있는 그래픽 컨텍스트
         GraphicsContext context = canvas.getGraphicsContext2D();
 
         start.setOnMouseClicked(event -> {
             // 처리 알고리즘에 쏴주세요
+
+            // 맵 데이터 받아오는 부분, 로그
             int[][] mapBoard = makeBoardData();
             System.out.println(Arrays.deepToString(mapBoard));
 
+            // Add to Grid 목록 불러오기, 로그
             HashMap<Integer, Integer> mapRandom = makeRandomList();
             System.out.println(mapRandom.toString());
-
-            Block tree = null;
 
             int goal = 0;
 
             try {
+                // 목표 갯수 파싱
                 goal = Integer.parseInt(goalNumber.getText());
 
-//                Checker checker = new Checker(mapBoard, mapRandom, goal);
-//                tree = checker.run();
+                // TODO: 맵 데이터랑 Add to Grid, 목표 갯수 체커에 넣어서 리턴타입이 뭐든간에 결과 뽑아내기.
             } catch (NumberFormatException e) {
                 goalNumber.setText("숫자가 아니잖아요!");
             }
 
-            if(tree != null)
-                printTree(tree);
-
             // 그려 주세요
+            // TODO: canvas에 받아온 맵 데이터를 바탕으로 레이저 그려주기
+
+            // canvas 앞으로 빼고 레이저 그리기
+            canvas.toFront();
+            (new Drawer(context, mapBoard)).drawLaser(); // TODO: mapBoard -> 받아온 맵 데이터로 교체
 
         });
+
         reset.setOnMouseClicked(event -> {
             // 리셋시켜 주세요
             for(Node node: board.getChildren()) {
@@ -94,8 +104,9 @@ public class footerController implements Initializable {
                 cell.getChildren().setAll();
             }
 
-            context.setFill(Color.WHITE);
-            context.fillRect(0, 0, 250, 250);
+            // canvas 뒤로 빼고 레이저 그리기
+            canvas.toBack();
+            context.clearRect(0, 0, 250, 250);
         });
 
         footer.getChildren().addAll(start, reset);
@@ -142,14 +153,5 @@ public class footerController implements Initializable {
         }
 
         return map;
-    }
-
-    private void printTree(Block treeNode) {
-        System.out.println("[" + treeNode.getLocation() + "," + treeNode.getType() + "]");
-        for(Block node: treeNode.conn) {
-            if(node != null) {
-                printTree(node);
-            }
-        }
     }
 }
