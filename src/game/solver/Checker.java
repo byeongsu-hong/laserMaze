@@ -13,6 +13,7 @@ public class Checker {
     private int[] numberOfEachBlockSize = new int[]{0, 4, 2, 2, 4, 2, 4};
     private ArrayList<Integer> blockArray, blockMaxArray;
     private int goalNumber; //골의 개수
+    private Block resultTree;
     //TODO : 고정된 랜덤 블럭의 위치를 파악할 것
 
     public void swap(Object arr[], int i, int j) {
@@ -27,6 +28,7 @@ public class Checker {
         startFixedStatus = isStartBlockInPlacement();
         fixedRandomBlockLocation = new HashMap<Integer, Integer>();
         this.goalNumber = goalNumber;
+        this.blockArray = new ArrayList<Integer>();
 
         int sum = 0;
         for(int key : randomBlockCount.keySet())
@@ -121,6 +123,7 @@ public class Checker {
         //체크하 과정 4 : 총 타겟에 붙은 레이저의 개수는?
 
         resultPlacement = statusBlock;
+        resultTree = startBlock;
         return true;
     }
 
@@ -162,7 +165,7 @@ public class Checker {
     }
 
 
-    public int[][] run() {
+    public Block run() {
         //블록의 위치를 변경하는 코드
         while(true) {
             blockLocation[blockLocSize-1]++;
@@ -171,7 +174,7 @@ public class Checker {
             //블록의 색을 섞는 코드
             Object[] arrayColorTemp = blockArray.toArray();
             if (perm(arrayColorTemp, 0)) {
-                return resultPlacement;
+                return resultTree;
             }
         }
     }
