@@ -70,8 +70,8 @@ public class footerController implements Initializable {
             try {
                 goal = Integer.parseInt(goalNumber.getText());
 
-                Checker checker = new Checker(mapBoard, mapRandom, goal);
-                tree = checker.run();
+//                Checker checker = new Checker(mapBoard, mapRandom, goal);
+//                tree = checker.run();
             } catch (NumberFormatException e) {
                 goalNumber.setText("숫자가 아니잖아요!");
             }
