@@ -14,34 +14,34 @@
     <ImageView id="45" fitWidth="50" fitHeight="50" GridPane.columnIndex="0" GridPane.rowIndex="0" >
         <Image url="@../res/p`.png" />
     </ImageView>
-    <ImageView id="43" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="0">
+    <ImageView id="40" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <Image url="@../res/p12.png" />
+    </ImageView>
+    <ImageView id="41" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="0">
         <Image url="@../res/p9.png" />
     </ImageView>
-    <ImageView id="42" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="0">
+    <ImageView id="42" fitWidth="50" fitHeight="50" GridPane.columnIndex="3" GridPane.rowIndex="0">
         <Image url="@../res/p6.png" />
     </ImageView>
-    <ImageView id="44" fitWidth="50" fitHeight="50" GridPane.columnIndex="3" GridPane.rowIndex="0">
+    <ImageView id="43" fitWidth="50" fitHeight="50" GridPane.columnIndex="4" GridPane.rowIndex="0">
         <Image url="@../res/p3.png" />
-    </ImageView>
-    <ImageView id="41" fitWidth="50" fitHeight="50" GridPane.columnIndex="4" GridPane.rowIndex="0">
-        <Image url="@../res/p12.png" />
     </ImageView>
 
     <!-- 2행 -->
     <ImageView id="65" fitWidth="50" fitHeight="50" GridPane.columnIndex="0" GridPane.rowIndex="1" >
         <Image url="@../res/t`.png" />
     </ImageView>
-    <ImageView id="63" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <ImageView id="60" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Image url="@../res/t12.png" />
+    </ImageView>
+    <ImageView id="61" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="1">
         <Image url="@../res/t9.png" />
     </ImageView>
-    <ImageView id="62" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="1">
+    <ImageView id="62" fitWidth="50" fitHeight="50" GridPane.columnIndex="3" GridPane.rowIndex="1">
         <Image url="@../res/t6.png" />
     </ImageView>
-    <ImageView id="64" fitWidth="50" fitHeight="50" GridPane.columnIndex="3" GridPane.rowIndex="1">
+    <ImageView id="63" fitWidth="50" fitHeight="50" GridPane.columnIndex="4" GridPane.rowIndex="1">
         <Image url="@../res/t3.png" />
-    </ImageView>
-    <ImageView id="61" fitWidth="50" fitHeight="50" GridPane.columnIndex="4" GridPane.rowIndex="1">
-        <Image url="@../res/t12.png" />
     </ImageView>
 
     <!-- 3행 -->
@@ -51,24 +51,24 @@
     <ImageView id="10" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="2">
         <Image url="@../res/r12.png" />
     </ImageView>
-    <ImageView id="13" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="2">
-        <Image url="@../res/r3.png" />
+    <ImageView id="11" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="2">
+        <Image url="@../res/r9.png" />
     </ImageView>
-    <ImageView id="11" fitWidth="50" fitHeight="50" GridPane.columnIndex="3" GridPane.rowIndex="2">
+    <ImageView id="12" fitWidth="50" fitHeight="50" GridPane.columnIndex="3" GridPane.rowIndex="2">
         <Image url="@../res/r6.png" />
     </ImageView>
-    <ImageView id="12" fitWidth="50" fitHeight="50" GridPane.columnIndex="4" GridPane.rowIndex="2">
-        <Image url="@../res/r9.png" />
+    <ImageView id="13" fitWidth="50" fitHeight="50" GridPane.columnIndex="4" GridPane.rowIndex="2">
+        <Image url="@../res/r3.png" />
     </ImageView>
 
     <!-- 4행 -->
     <ImageView id="55" fitWidth="50" fitHeight="50" GridPane.columnIndex="0" GridPane.rowIndex="3">
         <Image url="@../res/y`.png" />
     </ImageView>
-    <ImageView id="51" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
+    <ImageView id="50" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <Image url="@../res/yv.png" />
     </ImageView>
-    <ImageView id="52" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="3">
+    <ImageView id="51" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="3">
         <Image url="@../res/yh.png" />
     </ImageView>
 
@@ -76,10 +76,10 @@
     <ImageView id="35" fitWidth="50" fitHeight="50" GridPane.columnIndex="0" GridPane.rowIndex="4">
         <Image url="@../res/g`.png" />
     </ImageView>
-    <ImageView id="31" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="4">
+    <ImageView id="30" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="4">
         <Image url="@../res/g1.png" />
     </ImageView>
-    <ImageView id="32" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="4">
+    <ImageView id="31" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="4">
         <Image url="@../res/g2.png" />
     </ImageView>
 
@@ -87,10 +87,10 @@
     <ImageView id="25" fitWidth="50" fitHeight="50" GridPane.columnIndex="0" GridPane.rowIndex="5">
         <Image url="@../res/b`.png" />
     </ImageView>
-    <ImageView id="21" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
+    <ImageView id="20" fitWidth="50" fitHeight="50" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Image url="@../res/b1.png" />
     </ImageView>
-    <ImageView id="22" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="5">
+    <ImageView id="21" fitWidth="50" fitHeight="50" GridPane.columnIndex="2" GridPane.rowIndex="5">
         <Image url="@../res/b2.png" />
     </ImageView>
 </GridPane>
