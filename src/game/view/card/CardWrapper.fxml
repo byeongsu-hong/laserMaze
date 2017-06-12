@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="cardWrapper"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="game.controller.card.CardWrapper"
+        style="-fx-padding: 20px 50px 50px 50px;"/>

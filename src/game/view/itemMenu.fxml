@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.*?>
-
-<TabPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:id="itemMenu"
-            tabClosingPolicy="UNAVAILABLE"
-            style="-fx-padding: 40px 20px 20px 20px"/>
