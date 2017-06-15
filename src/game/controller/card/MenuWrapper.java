@@ -76,6 +76,7 @@ public class MenuWrapper implements Initializable {
 
     private GridPane getLeft() {
         GridPane addToGrid = new GridPane();
+        addToGrid.setStyle("-fx-background-color: aliceblue");
 
         for(int i = 0; i < 5; i++) {
             VBox cell = new VBox();
