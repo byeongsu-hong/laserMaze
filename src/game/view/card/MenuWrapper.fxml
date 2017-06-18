@@ -4,5 +4,4 @@
 
 <BorderPane fx:id="cardMenuWrapper"
             xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="game.controller.card.MenuWrapper"/>
+            xmlns:fx="http://javafx.com/fxml"/>

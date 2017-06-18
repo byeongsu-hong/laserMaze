@@ -2,6 +2,7 @@ package game.controller.card;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
@@ -16,6 +17,9 @@ import javafx.scene.text.TextAlignment;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static game.controller.MainWrapper.TOKEN_HEIGHT;
+import static game.controller.MainWrapper.TOKEN_WIDTH;
 
 /**
  * Created by hongbyeongsu on 2017. 6. 12..
@@ -80,8 +84,8 @@ public class MenuWrapper implements Initializable {
 
         for(int i = 0; i < 5; i++) {
             VBox cell = new VBox();
-            cell.setPrefWidth(50);
-            cell.setPrefHeight(50);
+            cell.setPrefWidth(TOKEN_WIDTH + 2);
+            cell.setPrefHeight(TOKEN_HEIGHT + 2);
             cell.setStyle("-fx-border-color: #333;");
             addToGrid.add(cell, i, 0);
         }

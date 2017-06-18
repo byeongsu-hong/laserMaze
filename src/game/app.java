@@ -14,6 +14,10 @@ import java.net.URL;
  */
 public class app extends Application {
 
+    public static int WIDTH = 900;
+    public static int HEIGHT = 600;
+    public static String IMAGE_LOCATION = "old_images";
+
     private static app context;
     public app() {
         context = this;
@@ -25,27 +29,10 @@ public class app extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        loadFonts();
-
         Parent root = FXMLLoader.load(getClass().getResource("view/MainWrapper.fxml"));
         primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 900, 600));
+        primaryStage.setScene(new Scene(root, WIDTH, HEIGHT));
         primaryStage.show();
-    }
-
-    private void loadFonts() {
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-Black.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-BlackItalic.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-Bold.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-BoldItalic.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-Italic.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-Light.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-LightItalic.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-Medium.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-MediumItalic.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-Regular.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-Thin.ttf").toExternalForm(), 10);
-        Font.loadFont(getClass().getResource("res/fonts/Roboto-ThinItalic.ttf").toExternalForm(), 10);
     }
 
     public static void main(String[] args) {

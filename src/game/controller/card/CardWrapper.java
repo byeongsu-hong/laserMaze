@@ -26,11 +26,21 @@ public class CardWrapper implements Initializable {
         FXMLLoader launchWrapperLoader = new FXMLLoader(app.getResource("view/card/LaunchWrapper.fxml"));
 
         try {
-            BorderPane menuWrapper = menuWrapperLoader.load();
-            StackPane stageWrapper = stageWrapperLoader.load();
-            BorderPane launchWrapper = launchWrapperLoader.load();
+            menuWrapperLoader.setController(new MenuWrapper());
 
-            cardWrapper.getChildren().setAll(menuWrapper, stageWrapper, launchWrapper);
+            BorderPane menuWrapper = menuWrapperLoader.load();
+            cardWrapper.getChildren().add(menuWrapper);
+
+            stageWrapperLoader.setController(new StageWrapper(cardWrapper));
+
+            StackPane stageWrapper = stageWrapperLoader.load();
+            cardWrapper.getChildren().add(stageWrapper);
+
+            launchWrapperLoader.setController(new LaunchWrapper(cardWrapper));
+
+            BorderPane launchWrapper = launchWrapperLoader.load();
+            cardWrapper.getChildren().add(launchWrapper);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

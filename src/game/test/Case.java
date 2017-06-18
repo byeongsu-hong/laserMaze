@@ -13,9 +13,12 @@ public class Case {
             {0, 0, 0, 0, 60},
             {0, 25, 0, 0, 0},
         }, new HashMap<Integer, Integer>(){{
-            put(35, 2);
-            put(45, 2);
-            put(15, 1);
+            put(1, 1);
+            put(2, 0);
+            put(3, 2);
+            put(4, 2);
+            put(5, 0);
+            put(6, 0);
         }}, 3);
 
     public static TestCase problem_48 = new TestCase(new int[][]{
@@ -25,11 +28,13 @@ public class Case {
             {0, 60, 0, 0, 0},
             {0, 0, 0, 0, 0},
         }, new HashMap<Integer, Integer>(){{
-            put(35, 2);
-            put(45, 3);
+            put(1, 0);
+            put(2, 0);
+            put(3, 2);
+            put(4, 3);
+            put(5, 0);
+            put(6, 0);
         }}, 3);
-
-
 
     public static class TestCase {
         private final int[][] map;
